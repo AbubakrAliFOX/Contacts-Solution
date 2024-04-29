@@ -1,0 +1,9 @@
+E:\Downloads\WebDev\Projects\Contacts Solution\ContactsBusinessLayer\bin\Debug\ContactsBusinessLayer.dll
+E:\Downloads\WebDev\Projects\Contacts Solution\ContactsBusinessLayer\bin\Debug\ContactsBusinessLayer.pdb
+E:\Downloads\WebDev\Projects\Contacts Solution\ContactsBusinessLayer\bin\Debug\ContactsDataAccessLayer.dll
+E:\Downloads\WebDev\Projects\Contacts Solution\ContactsBusinessLayer\bin\Debug\ContactsDataAccessLayer.pdb
+E:\Downloads\WebDev\Projects\Contacts Solution\ContactsBusinessLayer\obj\Debug\ContactsBusinessLayer.csproj.AssemblyReference.cache
+E:\Downloads\WebDev\Projects\Contacts Solution\ContactsBusinessLayer\obj\Debug\ContactsBusinessLayer.csproj.CoreCompileInputs.cache
+E:\Downloads\WebDev\Projects\Contacts Solution\ContactsBusinessLayer\obj\Debug\ContactsBusinessLayer.csproj.CopyComplete
+E:\Downloads\WebDev\Projects\Contacts Solution\ContactsBusinessLayer\obj\Debug\ContactsBusinessLayer.dll
+E:\Downloads\WebDev\Projects\Contacts Solution\ContactsBusinessLayer\obj\Debug\ContactsBusinessLayer.pdb
