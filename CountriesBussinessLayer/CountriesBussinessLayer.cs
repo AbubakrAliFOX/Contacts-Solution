@@ -39,5 +39,10 @@ namespace CountriesBussinessLayer
                 return null;
             }
         }
+
+        public static bool countryExists(string name)
+        {
+            return CountriesDataAccess.countryExists(name);
+        }
     }
 }
