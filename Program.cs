@@ -211,7 +211,8 @@ namespace Contacts_Solution
             //findCountryByName("Turkiye");
             //addNewCountry();
             //updateCountry("Turkiye");
-            deleteCountry("Coloumbia");
+            //deleteCountry("Coloumbia");
+            listCountries();
         }
     }
 }
