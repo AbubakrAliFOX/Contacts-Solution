@@ -51,7 +51,7 @@ namespace CountriesDataAccessLayer
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
 
-            string query = "select Found = 1 from Contacts where CountryName = @CountryName";
+            string query = "select Found = 1 from Countries where CountryName = @CountryName";
 
             SqlCommand cmd = new SqlCommand(query, connection);
 
@@ -113,7 +113,7 @@ namespace CountriesDataAccessLayer
             return CountryID;
         }
         
-        public static bool updateContact (int ID, string name)
+        public static bool updateCountry (int ID, string name)
         {
             int rowsAffected = 0;
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
@@ -143,6 +143,42 @@ namespace CountriesDataAccessLayer
             }
 
             return (rowsAffected > 0);
+        }
+    
+        public static DataTable getAllCountries ()
+        {
+            DataTable dt = new DataTable();
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+
+            string query = "Select * from Countries";
+
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    dt.Load(reader);
+                }
+
+                reader.Close();
+            }
+
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return dt;
         }
     }
 }

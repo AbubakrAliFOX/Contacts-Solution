@@ -151,7 +151,7 @@ namespace Contacts_Solution
 
             if (updatedCountry != null)
             {
-                updatedCountry.name= "Maher";
+                updatedCountry.name= "Coloumbia";
                
 
                 if (updatedCountry.save())
@@ -170,6 +170,37 @@ namespace Contacts_Solution
             }
         }
 
+        static void deleteCountry (string Name)
+        {
+            if (clsCountry.countryExists(Name))
+            {
+                if (clsCountry.delete(Name))
+                {
+                    Console.WriteLine("Contact with name=" + Name + " Deleted");
+                }
+                else
+                {
+                    Console.WriteLine("Contact with name=" + Name + " Not Deleted");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Contact with name=" + Name + " Not Found");
+
+            }
+        }
+        
+        static void listCountries ()
+        {
+            DataTable dataTable = clsCountry.getAllCountries();
+
+            Console.WriteLine("Countries Data:");
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                Console.WriteLine($"{row["CountryID"]}: {row["CountryName"]}");
+            }
+        }
         static void Main(string[] args)
         {
             //findContact(9);
@@ -177,8 +208,10 @@ namespace Contacts_Solution
             //updateContact(9);
             //deleteContact(7);
             //listContacts();
-            findCountryByName("Turkiye");
+            //findCountryByName("Turkiye");
             //addNewCountry();
+            //updateCountry("Turkiye");
+            deleteCountry("Coloumbia");
         }
     }
 }

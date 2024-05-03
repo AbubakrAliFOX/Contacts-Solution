@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Data.SqlClient;
 using CountriesDataAccessLayer;
 
 namespace CountriesBussinessLayer
@@ -53,7 +54,7 @@ namespace CountriesBussinessLayer
 
         private bool _updateCountry ()
         {
-            return CountriesDataAccess.updateContact(this.ID, this.name);
+            return CountriesDataAccess.updateCountry(this.ID, this.name);
         }
 
         public bool save ()
@@ -76,6 +77,42 @@ namespace CountriesBussinessLayer
             }
 
             return false;
+        }
+
+        public static bool delete (string Name)
+        {
+            int rowsAffected = 0;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+
+            string query = @"DELETE FROM Countries
+                                WHERE CountryName = @CountryName;";
+
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            cmd.Parameters.AddWithValue("@CountryName", Name);
+
+            try
+            {
+                connection.Open();
+                rowsAffected = cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return (rowsAffected > 0);
+        }
+
+        public static DataTable getAllCountries()
+        {
+            return CountriesDataAccess.getAllCountries();
         }
     }
 }
