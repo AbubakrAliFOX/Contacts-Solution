@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Net;
+using System.Security.Policy;
 
 
 namespace ContactsDataAccessLayer
@@ -34,7 +36,14 @@ namespace ContactsDataAccessLayer
                     address = (string)reader["Address"];
                     countryID = (int)reader["CountryID"];
                     dateOfBirth = (DateTime)reader["DateOfBirth"];
-                    imgPath = (string)reader["ImagePath"];
+                    //imgPath is nullable on database
+                    if (reader["ImagePath"] != DBNull.Value)
+                    {
+                        imgPath = (string)reader["ImagePath"];  
+                    } else
+                    {
+                        imgPath = "";
+                    }
                 } else
                 {
                     isFound = false;
@@ -50,6 +59,56 @@ namespace ContactsDataAccessLayer
             }
 
             return isFound;
+        }
+
+        public static int addNewContact (string firstName, string lastName, string email,
+        string phone, string address, DateTime dateOfBirth, int countryID, string imgPath)
+        {
+            int ContactID = -1;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+
+            string query = @"INSERT INTO Contacts (FirstName ,LastName ,Email ,Phone ,Address ,DateOfBirth 
+                            ,CountryID ,ImagePath)
+                            VALUES (@FirstName, @LastName, @Email, @Phone, @Address, @DateOfBirth, @CountryID, @ImagePath);
+                            Select SCOPE_IDENTITY();";
+            
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            cmd.Parameters.AddWithValue("@FirstName", firstName);
+            cmd.Parameters.AddWithValue("@LastName", lastName);
+            cmd.Parameters.AddWithValue("@Email", email);
+            cmd.Parameters.AddWithValue("@Phone", phone);
+            cmd.Parameters.AddWithValue("@Address", address);
+            cmd.Parameters.AddWithValue("@DateOfBirth", dateOfBirth);
+            cmd.Parameters.AddWithValue("@CountryID", countryID);            
+
+            if (imgPath != "") {
+                cmd.Parameters.AddWithValue("@ImagePath", imgPath);
+            } else {
+                cmd.Parameters.AddWithValue("@ImagePath", System.DBNull.Value);
+            }
+
+            try
+            {
+                connection.Open();
+                object result = cmd.ExecuteScalar();
+                
+                if (result != null && int.TryParse(result.ToString(), out int insertedID))
+                {
+                   ContactID = insertedID;
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return ContactID;
         }
     }
 }
