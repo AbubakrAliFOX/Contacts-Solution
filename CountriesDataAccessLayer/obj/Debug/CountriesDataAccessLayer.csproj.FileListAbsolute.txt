@@ -1,0 +1,6 @@
+E:\Downloads\WebDev\Projects\Contacts Solution\CountriesDataAccessLayer\bin\Debug\CountriesDataAccessLayer.dll
+E:\Downloads\WebDev\Projects\Contacts Solution\CountriesDataAccessLayer\bin\Debug\CountriesDataAccessLayer.pdb
+E:\Downloads\WebDev\Projects\Contacts Solution\CountriesDataAccessLayer\obj\Debug\CountriesDataAccessLayer.csproj.AssemblyReference.cache
+E:\Downloads\WebDev\Projects\Contacts Solution\CountriesDataAccessLayer\obj\Debug\CountriesDataAccessLayer.csproj.CoreCompileInputs.cache
+E:\Downloads\WebDev\Projects\Contacts Solution\CountriesDataAccessLayer\obj\Debug\CountriesDataAccessLayer.dll
+E:\Downloads\WebDev\Projects\Contacts Solution\CountriesDataAccessLayer\obj\Debug\CountriesDataAccessLayer.pdb

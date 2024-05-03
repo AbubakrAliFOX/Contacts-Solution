@@ -54,6 +54,10 @@
       <Project>{e93cea8b-de1f-4d9b-9a66-7917f9345998}</Project>
       <Name>ContactsBusinessLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="CountriesBussinessLayer\CountriesBussinessLayer.csproj">
+      <Project>{182e961c-68e4-49b5-a9ee-4c4a504378e6}</Project>
+      <Name>CountriesBussinessLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

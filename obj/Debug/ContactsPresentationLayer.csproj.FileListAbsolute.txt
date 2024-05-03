@@ -10,3 +10,7 @@ E:\Downloads\WebDev\Projects\Contacts Solution\obj\Debug\ContactsPresentationLay
 E:\Downloads\WebDev\Projects\Contacts Solution\obj\Debug\ContactsPresentationLayer.csproj.CopyComplete
 E:\Downloads\WebDev\Projects\Contacts Solution\obj\Debug\Contacts Solution.exe
 E:\Downloads\WebDev\Projects\Contacts Solution\obj\Debug\Contacts Solution.pdb
+E:\Downloads\WebDev\Projects\Contacts Solution\bin\Debug\CountriesBussinessLayer.dll
+E:\Downloads\WebDev\Projects\Contacts Solution\bin\Debug\CountriesDataAccessLayer.dll
+E:\Downloads\WebDev\Projects\Contacts Solution\bin\Debug\CountriesBussinessLayer.pdb
+E:\Downloads\WebDev\Projects\Contacts Solution\bin\Debug\CountriesDataAccessLayer.pdb

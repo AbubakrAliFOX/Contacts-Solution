@@ -1,13 +1,46 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace CountriesDataAccessLayer
 {
-    public class CountriesDataAccessLayer
+    public class CountriesDataAccess
     {
-        
+        public static bool findByName(string name, ref int ID)
+        {
+            bool isFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+
+            string query = "select * from Countries where CountryName = @CountryName";
+
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            cmd.Parameters.AddWithValue("@CountryName", name);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    isFound = true;
+                    ID = (int)reader["CountryID"];
+                }
+
+                reader.Close();
+            }
+            catch
+            {
+                isFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return isFound;
+        }
     }
 }

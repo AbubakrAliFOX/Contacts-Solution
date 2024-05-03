@@ -3,6 +3,7 @@ using System.Data;
 using System.Net;
 using System.Security.Policy;
 using ContactsBusinessLayer;
+using CountriesBussinessLayer;
 
 namespace Contacts_Solution
 {
@@ -113,13 +114,29 @@ namespace Contacts_Solution
             }
         }
 
+        static void findCountryByName (string Name)
+        {
+            clsCountry country1 = clsCountry.findByName(Name);
+
+            if (country1 != null)
+            {
+                Console.WriteLine($"Country ID: {country1.ID}");
+                Console.WriteLine($"Name: {country1.name}");
+            }
+            else
+            {
+                Console.WriteLine($"Country {Name} not found");
+            }
+        }
+
         static void Main(string[] args)
         {
             //findContact(9);
             //addNewContact();
             //updateContact(9);
-            deleteContact(7);
+            //deleteContact(7);
             //listContacts();
+            findCountryByName("Germany");
         }
     }
 }

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CountriesDataAccessLayer")]
+[assembly: AssemblyTitle("CountriesBussinessLayer")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("CountriesDataAccessLayer")]
+[assembly: AssemblyProduct("CountriesBussinessLayer")]
 [assembly: AssemblyCopyright("Copyright ©  2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("a6891907-1456-4f47-9cf9-026bd77d6bf9")]
+[assembly: Guid("182e961c-68e4-49b5-a9ee-4c4a504378e6")]
 
 // Version information for an assembly consists of the following four values:
 //
