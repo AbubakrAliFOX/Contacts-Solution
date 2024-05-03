@@ -51,6 +51,11 @@ namespace CountriesBussinessLayer
             return (this.ID != -1);
         }
 
+        private bool _updateCountry ()
+        {
+            return CountriesDataAccess.updateContact(this.ID, this.name);
+        }
+
         public bool save ()
         {
             switch (Mode)
@@ -65,8 +70,8 @@ namespace CountriesBussinessLayer
                     {
                         return false;
                     }
-                //case enMode.Update:
-                //    return _updateCountry();
+                case enMode.Update:
+                    return _updateCountry();
 
             }
 

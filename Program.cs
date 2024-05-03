@@ -144,6 +144,32 @@ namespace Contacts_Solution
                 Console.WriteLine("Not saved");
             }
         }
+
+        static void updateCountry (string Name)
+        {
+            clsCountry updatedCountry = clsCountry.findByName(Name);
+
+            if (updatedCountry != null)
+            {
+                updatedCountry.name= "Maher";
+               
+
+                if (updatedCountry.save())
+                {
+
+                    Console.WriteLine("Contact updated Successfully with id=" + updatedCountry.ID);
+                }
+                else
+                {
+                    Console.WriteLine("Contact with id=" + updatedCountry.ID + "Not updated");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Contact with id=" + updatedCountry.ID + "Not Found");
+            }
+        }
+
         static void Main(string[] args)
         {
             //findContact(9);
