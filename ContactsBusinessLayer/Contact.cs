@@ -115,7 +115,7 @@ namespace ContactsBusinessLayer
 
         public static bool contactExists (int ID)
         {
-            return clsContactsDataAccess.contactExists();
+            return clsContactsDataAccess.contactExists(ID);
         }
     }
 }

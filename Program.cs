@@ -83,13 +83,20 @@ namespace Contacts_Solution
 
         static void deleteContact(int ID)
         {
-            if (clsContact.delete(ID))
+            if(clsContact.contactExists(ID))
             {
-                Console.WriteLine("Contact with id=" + ID + " Deleted");
-            }
-            else
+                if (clsContact.delete(ID))
+                {
+                    Console.WriteLine("Contact with id=" + ID + " Deleted");
+                }
+                else
+                {
+                    Console.WriteLine("Contact with id=" + ID + " Not Deleted");
+                }
+            } else
             {
-                Console.WriteLine("Contact with id=" + ID + " Not Deleted");
+                Console.WriteLine("Contact with id=" + ID + " Not Found");
+
             }
         }
 
@@ -111,8 +118,8 @@ namespace Contacts_Solution
             //findContact(9);
             //addNewContact();
             //updateContact(9);
-            //deleteContact(8);
-            listContacts();
+            deleteContact(7);
+            //listContacts();
         }
     }
 }

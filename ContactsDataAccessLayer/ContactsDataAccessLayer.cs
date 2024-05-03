@@ -251,32 +251,7 @@ namespace ContactsDataAccessLayer
                 connection.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
 
-                if (reader.Read())
-                {
-                    isFound = true;
-                    ID = (int)reader["ContactID"];
-                    firstName = (string)reader["FirstName"];
-                    lastName = (string)reader["LastName"];
-                    email = (string)reader["Email"];
-                    phone = (string)reader["Phone"];
-                    address = (string)reader["Address"];
-                    countryID = (int)reader["CountryID"];
-                    dateOfBirth = (DateTime)reader["DateOfBirth"];
-                    //imgPath is nullable on database
-                    if (reader["ImagePath"] != DBNull.Value)
-                    {
-                        imgPath = (string)reader["ImagePath"];
-                    }
-                    else
-                    {
-                        imgPath = "";
-                    }
-                }
-                else
-                {
-                    isFound = false;
-                }
-
+                isFound = reader.HasRows;
                 reader.Close();
             }
             catch
