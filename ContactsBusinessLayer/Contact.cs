@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -58,13 +59,19 @@ namespace ContactsBusinessLayer
             DateTime dateOfBirth = DateTime.Now;
             int countryID = -1;
 
-            if(clsContactsDataAccess.getContactByID(ID, ref firstName, ref lastName, ref email, ref phone, ref address, ref dateOfBirth, ref countryID, ref imgPath))
+            if (clsContactsDataAccess.getContactByID(ID, ref firstName, ref lastName, ref email, ref phone, ref address, ref dateOfBirth, ref countryID, ref imgPath))
             {
                 return new clsContact(ID, firstName, lastName, email, phone, address, dateOfBirth, countryID, imgPath);
-            } else
+            }
+            else
             {
                 return null;
             }
+        }
+
+        public static bool delete(int ID)
+        {
+            return clsContactsDataAccess.deleteContactByID(ID);
         }
 
         private bool _addNewContact ()
@@ -100,5 +107,10 @@ namespace ContactsBusinessLayer
 
             return false;
         }
+
+        public static DataTable getAllContacts ()
+        {
+            return clsContactsDataAccess.getAllContacts();
+        } 
     }
 }

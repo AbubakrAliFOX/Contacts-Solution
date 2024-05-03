@@ -81,11 +81,37 @@ namespace Contacts_Solution
             }
         }
 
+        static void deleteContact(int ID)
+        {
+            if (clsContact.delete(ID))
+            {
+                Console.WriteLine("Contact with id=" + ID + " Deleted");
+            }
+            else
+            {
+                Console.WriteLine("Contact with id=" + ID + " Not Deleted");
+            }
+        }
+        
+        static void listContacts ()
+        {
+            DataTable dataTable = clsContact.getAllContacts();
+
+            Console.WriteLine("Cotacts Data:");
+                
+            foreach (DataRow row in dataTable.Rows)
+            {
+                Console.WriteLine($"{row["ContactID"]}: {row["FirstName"]}, {row["LastName"]}");
+            }
+        }
+
         static void Main(string[] args)
         {
             //findContact(9);
             //addNewContact();
-            updateContact(9);
+            //updateContact(9);
+            //deleteContact(8);
+            listContacts();
         }
     }
 }

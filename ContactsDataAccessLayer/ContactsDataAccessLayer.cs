@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 using System.Net;
 using System.Security.Policy;
@@ -164,6 +165,73 @@ namespace ContactsDataAccessLayer
             }
 
             return (rowsAffected > 0);
+        }
+
+        public static bool deleteContactByID(int ID)
+        {
+            int rowsAffected = 0;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+
+            string query = @"DELETE FROM Contacts
+                                WHERE ContactID = @ContactID;";
+
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            cmd.Parameters.AddWithValue("@ContactID", ID);
+
+            try
+            {
+                connection.Open();
+                rowsAffected = cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return (rowsAffected > 0);
+        }
+
+        public static DataTable getAllContacts ()
+        {
+            DataTable dt = new DataTable();
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+
+            string query = "Select * from Contacts";
+
+            SqlCommand cmd = new SqlCommand(query, connection);
+            
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if(reader.HasRows)
+                {
+                    dt.Load(reader);
+                }
+
+                reader.Close();
+            }
+
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return dt;
         }
     }
 }
