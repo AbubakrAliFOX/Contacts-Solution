@@ -8,7 +8,7 @@ namespace CountriesDataAccessLayer
 {
     public class CountriesDataAccess
     {
-        public static bool findByName(string name, ref int ID)
+        public static bool findByName(string name, ref int ID, ref string code, ref string phoneCode)
         {
             bool isFound = false;
 
@@ -29,6 +29,23 @@ namespace CountriesDataAccessLayer
                 {
                     isFound = true;
                     ID = (int)reader["CountryID"];
+                    if (reader["Code"] != DBNull.Value)
+                    {
+                        code = (string)reader["Code"];
+                    }
+                    else
+                    {
+                        code = "";
+                    }
+
+                    if (reader["PhoneCode"] != DBNull.Value)
+                    {
+                        phoneCode = (string)reader["PhoneCode"];
+                    }
+                    else
+                    {
+                        phoneCode = "";
+                    }
                 }
 
                 reader.Close();
@@ -77,18 +94,36 @@ namespace CountriesDataAccessLayer
             return isFound;
         }
     
-        public static int addNewCountry (string name)
+        public static int addNewCountry (string name, string code, string phoneCode)
         {
             int CountryID = -1;
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
 
-            string query = @"INSERT INTO Countries (CountryName)
-                            VALUES (@CountryName);
+            string query = @"INSERT INTO Countries (CountryName, Code, PhoneCode)
+                            VALUES (@CountryName, @Code, @PhoneCode);
                             Select SCOPE_IDENTITY();";
 
             SqlCommand cmd = new SqlCommand(query, connection);
 
             cmd.Parameters.AddWithValue("@CountryName", name);
+
+            if (code != "")
+            {
+                cmd.Parameters.AddWithValue("@Code", code);
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@Code", System.DBNull.Value);
+            }
+
+            if (phoneCode != "")
+            {
+                cmd.Parameters.AddWithValue("@PhoneCode", phoneCode);
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@PhoneCode", System.DBNull.Value);
+            }
 
             try
             {
@@ -113,19 +148,39 @@ namespace CountriesDataAccessLayer
             return CountryID;
         }
         
-        public static bool updateCountry (int ID, string name)
+        public static bool updateCountry (int ID, string name, string code, string phoneCode)
         {
             int rowsAffected = 0;
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
 
             string query = @"UPDATE Countries
-                            SET CountryName = @CountryName
+                            SET CountryName = @CountryName,
+                                Code = @Code,
+                                PhoneCode = @PhoneCode
                             WHERE CountryID = @CountryID";
 
             SqlCommand cmd = new SqlCommand(query, connection);
 
             cmd.Parameters.AddWithValue("@CountryName", name);
             cmd.Parameters.AddWithValue("@CountryID", ID);
+
+            if (code != "")
+            {
+                cmd.Parameters.AddWithValue("@Code", code);
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@Code", System.DBNull.Value);
+            }
+
+            if (phoneCode != "")
+            {
+                cmd.Parameters.AddWithValue("@PhoneCode", phoneCode);
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@PhoneCode", System.DBNull.Value);
+            }
 
             try
             {

@@ -122,6 +122,8 @@ namespace Contacts_Solution
             {
                 Console.WriteLine($"Country ID: {country1.ID}");
                 Console.WriteLine($"Name: {country1.name}");
+                Console.WriteLine($"Code: {country1.code}");
+                Console.WriteLine($"Phone Code: {country1.phoneCode}");
             }
             else
             {
@@ -133,8 +135,7 @@ namespace Contacts_Solution
         {
             clsCountry newCountry = new clsCountry();
 
-            newCountry.ID = 6;
-            newCountry.name = "Turkiye";
+            newCountry.name = "Italy";
 
             if(newCountry.save())
             {
@@ -151,7 +152,8 @@ namespace Contacts_Solution
 
             if (updatedCountry != null)
             {
-                updatedCountry.name= "Coloumbia";
+                updatedCountry.name= "Italy";
+                updatedCountry.code= "";
                
 
                 if (updatedCountry.save())
@@ -198,7 +200,7 @@ namespace Contacts_Solution
 
             foreach (DataRow row in dataTable.Rows)
             {
-                Console.WriteLine($"{row["CountryID"]}: {row["CountryName"]}");
+                Console.WriteLine($"{row["CountryID"]}: {row["CountryName"]} - {row["Code"]} - {row["PhoneCode"]}");
             }
         }
         static void Main(string[] args)
@@ -210,9 +212,9 @@ namespace Contacts_Solution
             //listContacts();
             //findCountryByName("Turkiye");
             //addNewCountry();
-            //updateCountry("Turkiye");
+            updateCountry("Italy");
             //deleteCountry("Coloumbia");
-            listCountries();
+            //listCountries();
         }
     }
 }

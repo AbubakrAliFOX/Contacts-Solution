@@ -9,6 +9,8 @@ namespace CountriesBussinessLayer
     {
         public int ID { set; get; }
         public string name { set; get; }
+        public string code { set; get; }
+        public string phoneCode { set; get; }
         public enum enMode { AddNew = 0, Update = 1 };
         public enMode Mode = enMode.AddNew;
         public clsCountry()
@@ -16,24 +18,30 @@ namespace CountriesBussinessLayer
         {
             this.ID = -1;
             this.name = "";
+            this.code = "";
+            this.phoneCode = "";
             Mode = enMode.AddNew;
 
         }
 
-        private clsCountry(int ID, string name)
+        private clsCountry(int ID, string name, string code, string phoneCode)
         {
             this.ID = ID;
             this.name = name;
+            this.code = code;
+            this.phoneCode = phoneCode;
             Mode = enMode.Update;
         }
 
         public static clsCountry findByName(string name)
         {
             int ID = -1;
+            string code = "";
+            string phoneCode = "";
 
-            if (CountriesDataAccess.findByName(name, ref ID))
+            if (CountriesDataAccess.findByName(name, ref ID, ref code, ref phoneCode))
             {
-                return new clsCountry(ID, name);
+                return new clsCountry(ID, name, code, phoneCode);
             }
             else
             {
@@ -48,13 +56,13 @@ namespace CountriesBussinessLayer
 
         private bool _addNewCountry ()
         {
-            this.ID = CountriesDataAccess.addNewCountry(this.name);
+            this.ID = CountriesDataAccess.addNewCountry(this.name, this.code, this.phoneCode);
             return (this.ID != -1);
         }
 
         private bool _updateCountry ()
         {
-            return CountriesDataAccess.updateCountry(this.ID, this.name);
+            return CountriesDataAccess.updateCountry(this.ID, this.name, this.code, this.phoneCode);
         }
 
         public bool save ()
