@@ -110,5 +110,60 @@ namespace ContactsDataAccessLayer
 
             return ContactID;
         }
+
+        public static bool updateContact(int ID, string firstName, string lastName, string email,
+        string phone, string address, DateTime dateOfBirth, int countryID, string imgPath)
+        {
+            int rowsAffected = 0;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+
+            string query = @"UPDATE Contacts
+                            SET FirstName = @FirstName,
+                                LastName = @LastName,
+                                Email = @Email,
+                                Phone = @Phone,
+                                Address = @Address,
+                                DateOfBirth = @DateOfBirth,
+                                CountryID = @CountryID,
+                                ImagePath = @ImagePath
+                            WHERE ContactID = @ContactID";
+
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            cmd.Parameters.AddWithValue("@ContactID", ID);
+            cmd.Parameters.AddWithValue("@FirstName", firstName);
+            cmd.Parameters.AddWithValue("@LastName", lastName);
+            cmd.Parameters.AddWithValue("@Email", email);
+            cmd.Parameters.AddWithValue("@Phone", phone);
+            cmd.Parameters.AddWithValue("@Address", address);
+            cmd.Parameters.AddWithValue("@DateOfBirth", dateOfBirth);
+            cmd.Parameters.AddWithValue("@CountryID", countryID);
+
+            if (imgPath != "")
+            {
+                cmd.Parameters.AddWithValue("@ImagePath", imgPath);
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@ImagePath", System.DBNull.Value);
+            }
+
+            try
+            {
+                connection.Open();
+                rowsAffected = cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return (rowsAffected > 0);
+        }
     }
 }

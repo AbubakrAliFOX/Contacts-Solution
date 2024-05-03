@@ -49,10 +49,43 @@ namespace Contacts_Solution
                 Console.WriteLine("Contact with id=" + Contact1.ID + "Not Added");
             }
         }
+
+        static void updateContact(int ID)
+        {
+            clsContact Contact1 = clsContact.find(ID);
+
+            if (Contact1 != null)
+            {
+                Contact1.firstName = "Hazer";
+                Contact1.lastName = "Maher";
+                Contact1.email = "A@a.com";
+                Contact1.phone = "010010";
+                Contact1.address = "address1";
+                Contact1.dateOfBirth = new DateTime(1977, 11, 6, 10, 30, 0);
+                Contact1.countryID = 1;
+                Contact1.imgPath = "";
+
+                if (Contact1.save())
+                {
+
+                    Console.WriteLine("Contact updated Successfully with id=" + Contact1.ID);
+                }
+                else
+                {
+                    Console.WriteLine("Contact with id=" + Contact1.ID + "Not updated");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Contact with id=" + Contact1.ID + "Not Found");
+            }
+        }
+
         static void Main(string[] args)
         {
-            findContact(9);
+            //findContact(9);
             //addNewContact();
+            updateContact(9);
         }
     }
 }

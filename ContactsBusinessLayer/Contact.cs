@@ -76,9 +76,8 @@ namespace ContactsBusinessLayer
 
         private bool _updateContact()
         {
-            this.ID = clsContactsDataAccess.addNewContact(this.firstName, this.lastName, this.email,
+            return clsContactsDataAccess.updateContact(this.ID, this.firstName, this.lastName, this.email,
                 this.phone, this.address, this.dateOfBirth, this.countryID, this.imgPath);
-            return (this.ID != -1);
         }
 
         public bool save ()
@@ -97,8 +96,9 @@ namespace ContactsBusinessLayer
                 case enMode.Update:
                     return _updateContact();
                 
-                default: return false;
             }
+
+            return false;
         }
     }
 }
