@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Net;
+using System.Security.Policy;
 
 namespace CountriesDataAccessLayer
 {
@@ -73,6 +75,42 @@ namespace CountriesDataAccessLayer
             }
 
             return isFound;
+        }
+    
+        public static int addNewCountry (string name)
+        {
+            int CountryID = -1;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+
+            string query = @"INSERT INTO Countries (CountryName)
+                            VALUES (@CountryName);
+                            Select SCOPE_IDENTITY();";
+
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            cmd.Parameters.AddWithValue("@CountryName", name);
+
+            try
+            {
+                connection.Open();
+                object result = cmd.ExecuteScalar();
+
+                if (result != null && int.TryParse(result.ToString(), out int insertedID))
+                {
+                    CountryID = insertedID;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return CountryID;
         }
     }
 }

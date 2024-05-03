@@ -129,6 +129,21 @@ namespace Contacts_Solution
             }
         }
 
+        static void addNewCountry ()
+        {
+            clsCountry newCountry = new clsCountry();
+
+            newCountry.ID = 6;
+            newCountry.name = "Turkiye";
+
+            if(newCountry.save())
+            {
+                Console.WriteLine("Saved!");
+            } else
+            {
+                Console.WriteLine("Not saved");
+            }
+        }
         static void Main(string[] args)
         {
             //findContact(9);
@@ -136,7 +151,8 @@ namespace Contacts_Solution
             //updateContact(9);
             //deleteContact(7);
             //listContacts();
-            findCountryByName("Germany");
+            findCountryByName("Turkiye");
+            //addNewCountry();
         }
     }
 }

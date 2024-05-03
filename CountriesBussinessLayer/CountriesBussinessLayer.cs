@@ -44,5 +44,33 @@ namespace CountriesBussinessLayer
         {
             return CountriesDataAccess.countryExists(name);
         }
+
+        private bool _addNewCountry ()
+        {
+            this.ID = CountriesDataAccess.addNewCountry(this.name);
+            return (this.ID != -1);
+        }
+
+        public bool save ()
+        {
+            switch (Mode)
+            {
+                case enMode.AddNew:
+                    if (_addNewCountry())
+                    {
+                        Mode = enMode.Update;
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                //case enMode.Update:
+                //    return _updateCountry();
+
+            }
+
+            return false;
+        }
     }
 }
