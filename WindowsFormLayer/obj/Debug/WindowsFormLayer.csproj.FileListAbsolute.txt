@@ -1,0 +1,15 @@
+E:\Downloads\WebDev\Projects\Contacts Solution\WindowsFormLayer\bin\Debug\WindowsFormLayer.exe.config
+E:\Downloads\WebDev\Projects\Contacts Solution\WindowsFormLayer\bin\Debug\WindowsFormLayer.exe
+E:\Downloads\WebDev\Projects\Contacts Solution\WindowsFormLayer\bin\Debug\WindowsFormLayer.pdb
+E:\Downloads\WebDev\Projects\Contacts Solution\WindowsFormLayer\obj\Debug\WindowsFormLayer.csproj.AssemblyReference.cache
+E:\Downloads\WebDev\Projects\Contacts Solution\WindowsFormLayer\obj\Debug\WindowsFormLayer.Form1.resources
+E:\Downloads\WebDev\Projects\Contacts Solution\WindowsFormLayer\obj\Debug\WindowsFormLayer.Properties.Resources.resources
+E:\Downloads\WebDev\Projects\Contacts Solution\WindowsFormLayer\obj\Debug\WindowsFormLayer.csproj.GenerateResource.cache
+E:\Downloads\WebDev\Projects\Contacts Solution\WindowsFormLayer\obj\Debug\WindowsFormLayer.csproj.CoreCompileInputs.cache
+E:\Downloads\WebDev\Projects\Contacts Solution\WindowsFormLayer\obj\Debug\WindowsFormLayer.exe
+E:\Downloads\WebDev\Projects\Contacts Solution\WindowsFormLayer\obj\Debug\WindowsFormLayer.pdb
+E:\Downloads\WebDev\Projects\Contacts Solution\WindowsFormLayer\bin\Debug\ContactsBusinessLayer.dll
+E:\Downloads\WebDev\Projects\Contacts Solution\WindowsFormLayer\bin\Debug\ContactsDataAccessLayer.dll
+E:\Downloads\WebDev\Projects\Contacts Solution\WindowsFormLayer\bin\Debug\ContactsBusinessLayer.pdb
+E:\Downloads\WebDev\Projects\Contacts Solution\WindowsFormLayer\bin\Debug\ContactsDataAccessLayer.pdb
+E:\Downloads\WebDev\Projects\Contacts Solution\WindowsFormLayer\obj\Debug\WindowsFormLayer.csproj.CopyComplete

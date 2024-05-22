@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ContactsBusinessLayer;
+
 
 namespace WindowsFormLayer
 {
@@ -15,6 +17,16 @@ namespace WindowsFormLayer
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            _RefreshContactsList();
+        }
+
+        private void _RefreshContactsList ()
+        {
+            dgv.DataSource = clsContact.getAllContacts();
         }
     }
 }
