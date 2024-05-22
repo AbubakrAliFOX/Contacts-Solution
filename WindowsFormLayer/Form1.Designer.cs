@@ -28,8 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dgv = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuDelete = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgv
@@ -37,6 +42,7 @@
             this.dgv.AllowUserToAddRows = false;
             this.dgv.AllowUserToDeleteRows = false;
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv.ContextMenuStrip = this.contextMenuStrip1;
             this.dgv.Location = new System.Drawing.Point(-7, 124);
             this.dgv.Name = "dgv";
             this.dgv.ReadOnly = true;
@@ -44,6 +50,27 @@
             this.dgv.RowTemplate.Height = 24;
             this.dgv.Size = new System.Drawing.Size(1107, 411);
             this.dgv.TabIndex = 0;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.contextMenuEdit,
+            this.contextMenuDelete});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(123, 52);
+            // 
+            // contextMenuEdit
+            // 
+            this.contextMenuEdit.Name = "contextMenuEdit";
+            this.contextMenuEdit.Size = new System.Drawing.Size(122, 24);
+            this.contextMenuEdit.Text = "Edit";
+            // 
+            // contextMenuDelete
+            // 
+            this.contextMenuDelete.Name = "contextMenuDelete";
+            this.contextMenuDelete.Size = new System.Drawing.Size(122, 24);
+            this.contextMenuDelete.Text = "Delete";
             // 
             // Form1
             // 
@@ -55,6 +82,7 @@
             this.Text = "Contacts";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -62,6 +90,9 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgv;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuEdit;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuDelete;
     }
 }
 
