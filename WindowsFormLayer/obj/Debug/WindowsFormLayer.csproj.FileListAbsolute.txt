@@ -13,3 +13,8 @@ E:\Downloads\WebDev\Projects\Contacts Solution\WindowsFormLayer\bin\Debug\Contac
 E:\Downloads\WebDev\Projects\Contacts Solution\WindowsFormLayer\bin\Debug\ContactsBusinessLayer.pdb
 E:\Downloads\WebDev\Projects\Contacts Solution\WindowsFormLayer\bin\Debug\ContactsDataAccessLayer.pdb
 E:\Downloads\WebDev\Projects\Contacts Solution\WindowsFormLayer\obj\Debug\WindowsFormLayer.csproj.CopyComplete
+E:\Downloads\WebDev\Projects\Contacts Solution\WindowsFormLayer\obj\Debug\WindowsFormLayer.EditContact.resources
+E:\Downloads\WebDev\Projects\Contacts Solution\WindowsFormLayer\bin\Debug\CountriesBussinessLayer.dll
+E:\Downloads\WebDev\Projects\Contacts Solution\WindowsFormLayer\bin\Debug\CountriesDataAccessLayer.dll
+E:\Downloads\WebDev\Projects\Contacts Solution\WindowsFormLayer\bin\Debug\CountriesBussinessLayer.pdb
+E:\Downloads\WebDev\Projects\Contacts Solution\WindowsFormLayer\bin\Debug\CountriesDataAccessLayer.pdb

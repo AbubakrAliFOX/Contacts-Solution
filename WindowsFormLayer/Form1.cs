@@ -28,5 +28,11 @@ namespace WindowsFormLayer
         {
             dgv.DataSource = clsContact.getAllContacts();
         }
+
+        private void btnAddContact_Click(object sender, EventArgs e)
+        {
+            EditContact editContact = new EditContact(-1);
+            editContact.ShowDialog();
+        }
     }
 }

@@ -33,6 +33,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.contextMenuEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnAddContact = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -72,11 +73,22 @@
             this.contextMenuDelete.Size = new System.Drawing.Size(122, 24);
             this.contextMenuDelete.Text = "Delete";
             // 
+            // btnAddContact
+            // 
+            this.btnAddContact.Location = new System.Drawing.Point(899, 12);
+            this.btnAddContact.Name = "btnAddContact";
+            this.btnAddContact.Size = new System.Drawing.Size(177, 86);
+            this.btnAddContact.TabIndex = 2;
+            this.btnAddContact.Text = "Add new contact";
+            this.btnAddContact.UseVisualStyleBackColor = true;
+            this.btnAddContact.Click += new System.EventHandler(this.btnAddContact_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1097, 531);
+            this.Controls.Add(this.btnAddContact);
             this.Controls.Add(this.dgv);
             this.Name = "Form1";
             this.Text = "Contacts";
@@ -93,6 +105,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem contextMenuEdit;
         private System.Windows.Forms.ToolStripMenuItem contextMenuDelete;
+        private System.Windows.Forms.Button btnAddContact;
     }
 }
 
