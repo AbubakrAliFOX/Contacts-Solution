@@ -59,19 +59,21 @@
             this.contextMenuEdit,
             this.contextMenuDelete});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(123, 52);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 80);
             // 
             // contextMenuEdit
             // 
             this.contextMenuEdit.Name = "contextMenuEdit";
-            this.contextMenuEdit.Size = new System.Drawing.Size(122, 24);
+            this.contextMenuEdit.Size = new System.Drawing.Size(210, 24);
             this.contextMenuEdit.Text = "Edit";
+            this.contextMenuEdit.Click += new System.EventHandler(this.contextMenuEdit_Click);
             // 
             // contextMenuDelete
             // 
             this.contextMenuDelete.Name = "contextMenuDelete";
-            this.contextMenuDelete.Size = new System.Drawing.Size(122, 24);
+            this.contextMenuDelete.Size = new System.Drawing.Size(210, 24);
             this.contextMenuDelete.Text = "Delete";
+            this.contextMenuDelete.Click += new System.EventHandler(this.contextMenuDelete_Click);
             // 
             // btnAddContact
             // 

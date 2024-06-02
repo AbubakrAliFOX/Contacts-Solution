@@ -83,7 +83,7 @@ namespace WindowsFormLayer
 
             LLRemoveImg.Visible = (_contact.imgPath != "");
 
-            //cbCountries.SelectedIndex = cbCountries.FindString(clsCountry.find(_contact.countryID).name);
+            cbCountries.SelectedIndex = cbCountries.FindString(clsCountry.find(_contact.countryID).name);
         }
 
         private void EditContact_Load(object sender, EventArgs e)
@@ -102,6 +102,32 @@ namespace WindowsFormLayer
             _contact.address = txtAddress.Text;
             _contact.dateOfBirth = dtpDate.Value;
             _contact.countryID = countryID;
+
+            if (pictureBox1.ImageLocation != null)
+            {
+                _contact.imgPath = pictureBox1.ImageLocation.ToString();
+            } 
+            else
+            {
+                _contact.imgPath = "";
+            }
+
+            if (_contact.save())
+            {
+                MessageBox.Show("Data Saved Successfully!");
+            } else
+            {
+                MessageBox.Show("Error: Data not Saved!");
+            }
+
+            _mode = enMode.update;
+            lblMode.Text = "Edit contact with ID = " + _contactID;
+            lblContactID.Text = _contactID.ToString();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

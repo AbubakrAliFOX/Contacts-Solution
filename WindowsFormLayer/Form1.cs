@@ -34,5 +34,32 @@ namespace WindowsFormLayer
             EditContact editContact = new EditContact(-1);
             editContact.ShowDialog();
         }
+
+        private void contextMenuEdit_Click(object sender, EventArgs e)
+        {
+            EditContact newForm = new EditContact((int)dgv.CurrentRow.Cells[0].Value);
+            newForm.ShowDialog();
+            _RefreshContactsList();
+        }
+
+        private void contextMenuDelete_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to delete contact [" + dgv.CurrentRow.Cells[0].Value + "]", "Confirm Delete", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                //Perform Delele and refresh
+                if (clsContact.delete((int)dgv.CurrentRow.Cells[0].Value))
+                {
+                    MessageBox.Show("Contact Deleted Successfully.");
+                    _RefreshContactsList();
+                }
+
+                else
+                    MessageBox.Show("Contact is not deleted.");
+
+
+            }
+
+
+        }
     }
 }

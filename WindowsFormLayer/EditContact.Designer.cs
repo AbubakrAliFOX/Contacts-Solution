@@ -64,7 +64,7 @@
             // 
             this.lblMode.AutoSize = true;
             this.lblMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMode.Location = new System.Drawing.Point(200, 33);
+            this.lblMode.Location = new System.Drawing.Point(53, 35);
             this.lblMode.Name = "lblMode";
             this.lblMode.Size = new System.Drawing.Size(92, 32);
             this.lblMode.TabIndex = 1;
@@ -239,12 +239,13 @@
             this.btnClose.TabIndex = 8;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // EditContact
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(488, 638);
+            this.ClientSize = new System.Drawing.Size(488, 651);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.LLRemoveImg);
