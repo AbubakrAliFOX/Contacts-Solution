@@ -49,6 +49,22 @@ namespace CountriesBussinessLayer
             }
         }
 
+        public static clsCountry find(int ID)
+        {
+            string code = "";
+            string phoneCode = "";
+            string name = "";
+
+            if (CountriesDataAccess.find(ID, ref name, ref code, ref phoneCode))
+            {
+                return new clsCountry(ID, name, code, phoneCode);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public static bool countryExists(string name)
         {
             return CountriesDataAccess.countryExists(name);

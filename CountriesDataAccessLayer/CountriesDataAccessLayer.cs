@@ -61,7 +61,62 @@ namespace CountriesDataAccessLayer
 
             return isFound;
         }
-        
+
+        public static bool find(int ID, ref string name, ref string code, ref string phoneCode)
+        {
+            bool isFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+
+            string query = "select * from Countries where CountryID = @CountryID";
+
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            cmd.Parameters.AddWithValue("@CountryID", ID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    isFound = true;
+                    ID = (int)reader["CountryID"];
+                    name = (string)reader["CountryName"];
+                    if (reader["Code"] != DBNull.Value)
+                    {
+                        code = (string)reader["Code"];
+                    }
+                    else
+                    {
+                        code = "";
+                    }
+
+                    if (reader["PhoneCode"] != DBNull.Value)
+                    {
+                        phoneCode = (string)reader["PhoneCode"];
+                    }
+                    else
+                    {
+                        phoneCode = "";
+                    }
+                }
+
+                reader.Close();
+            }
+            catch
+            {
+                isFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return isFound;
+        }
+
         public static bool countryExists(string name) 
         {
             bool isFound = false;

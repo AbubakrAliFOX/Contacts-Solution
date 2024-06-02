@@ -68,8 +68,40 @@ namespace WindowsFormLayer
             }
 
             lblMode.Text = "Edit contact with ID = " + _contactID;
-            lblContactID = _contactID.ToString();
+            lblContactID.Text = _contactID.ToString();
             txtFirstName.Text = _contact.firstName;
+            txtLastName.Text = _contact.lastName;
+            txtEmail.Text = _contact.email;
+            txtPhone.Text = _contact.phone;
+            txtAddress.Text = _contact.address;
+            dtpDate.Value = _contact.dateOfBirth;
+
+            if (_contact.imgPath != "")
+            {
+                pictureBox1.Load(_contact.imgPath);
+            }
+
+            LLRemoveImg.Visible = (_contact.imgPath != "");
+
+            //cbCountries.SelectedIndex = cbCountries.FindString(clsCountry.find(_contact.countryID).name);
+        }
+
+        private void EditContact_Load(object sender, EventArgs e)
+        {
+            _loadData();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            int countryID = clsCountry.findByName(cbCountries.Text).ID;
+
+            _contact.firstName = txtFirstName.Text;
+            _contact.lastName = txtLastName.Text;
+            _contact.email = txtEmail.Text;
+            _contact.phone = txtPhone.Text;
+            _contact.address = txtAddress.Text;
+            _contact.dateOfBirth = dtpDate.Value;
+            _contact.countryID = countryID;
         }
     }
 }
